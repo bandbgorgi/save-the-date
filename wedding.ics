@@ -1,0 +1,14 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Brenna & Braedon Wedding//EN
+CALSCALE:GREGORIAN
+BEGIN:VEVENT
+UID:brenna-braedon-20261106
+DTSTAMP:20260519T000000Z
+DTSTART;VALUE=DATE:20261106
+DTEND;VALUE=DATE:20261107
+SUMMARY:Brenna & Braedon Wedding
+LOCATION:Elora Mill, Elora, Ontario, Canada
+DESCRIPTION:Join us for the wedding celebration of Brenna & Braedon at Elora Mill. Formal invitation to follow.
+END:VEVENT
+END:VCALENDAR

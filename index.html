@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Brenna & Braedon — Save the Date</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    body{
+      background:#602320;
+      font-family:'Montserrat', sans-serif;
+      overflow-x:hidden;
+      color:#F1ECEB;
+    }
+
+    /* PAGE */
+
+    .container{
+      width:100%;
+      min-height:100vh;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:18px;
+      background:
+      radial-gradient(circle at top, rgba(255,255,255,0.04), transparent 30%),
+      #602320;
+    }
+
+    .card{
+      width:100%;
+      max-width:430px;
+      overflow:hidden;
+      border-radius:28px;
+      background:#602320;
+      border:1px solid rgba(200,164,106,0.25);
+      box-shadow:0 12px 40px rgba(0,0,0,0.35);
+      animation:fadeUp 1.2s ease;
+    }
+
+    /* INTRO VIDEO */
+
+    .intro-video-wrapper{
+      position:fixed;
+      inset:0;
+      background:black;
+      z-index:999;
+      overflow:hidden;
+      animation:introFadeOut 20s forwards;
+    }
+
+    .intro-video{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .intro-overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(
+        rgba(0,0,0,0.18),
+        rgba(0,0,0,0.48)
+      );
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      padding:30px;
+      animation:introTextFade 5s forwards;
+    }
+
+    .intro-eyebrow{
+      font-size:12px;
+      letter-spacing:6px;
+      text-transform:uppercase;
+      color:#F1ECEB;
+      margin-bottom:24px;
+      animation:softAppear 2s ease;
+    }
+
+    .intro-title{
+      font-family:'Cormorant Garamond', serif;
+      font-size:74px;
+      line-height:0.95;
+      font-weight:400;
+      color:#F1ECEB;
+      text-shadow:0 4px 20px rgba(0,0,0,0.35);
+      animation:softAppear 2.6s ease;
+    }
+
+    .tap-sound{
+      margin-top:30px;
+      font-size:11px;
+      letter-spacing:4px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.78);
+      animation:softAppear 3s ease;
+    }
+
+    /* HERO */
+
+    .hero{
+      position:relative;
+      height:720px;
+      overflow:hidden;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-end;
+      padding:42px 32px;
+      isolation:isolate;
+    }
+
+    .hero-background-photo{
+      position:absolute;
+      inset:0;
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      z-index:-3;
+    }
+
+    .hero::after{
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(
+        rgba(0,0,0,0.15),
+        rgba(0,0,0,0.58)
+      );
+      z-index:-2;
+    }
+
+    .overlay-floral{
+      position:absolute;
+      top:0;
+      right:0;
+      width:180px;
+      opacity:0.16;
+      mix-blend-mode:screen;
+      z-index:2;
+    }
+
+    .hero-content{
+      position:relative;
+      z-index:3;
+    }
+
+    .eyebrow{
+      font-size:11px;
+      letter-spacing:5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,0.82);
+      margin-bottom:20px;
+    }
+
+    h1{
+      font-family:'Cormorant Garamond', serif;
+      font-size:66px;
+      line-height:0.95;
+      font-weight:400;
+      color:white;
+      margin-bottom:24px;
+      text-shadow:0 4px 18px rgba(0,0,0,0.35);
+    }
+
+    .details{
+      color:rgba(255,255,255,0.92);
+      font-size:13px;
+      letter-spacing:3px;
+      line-height:1.9;
+      text-transform:uppercase;
+    }
+
+    /* MAIN CONTENT */
+
+    .info-section{
+      padding:42px 30px 52px;
+      text-align:center;
+      background:#602320;
+    }
+
+    .message{
+      font-family:'Cormorant Garamond', serif;
+      font-size:34px;
+      line-height:1.3;
+      color:#F1ECEB;
+      margin-bottom:22px;
+    }
+
+    .subtext{
+      font-size:13px;
+      line-height:1.9;
+      color:#D9CCC2;
+      margin-bottom:40px;
+    }
+
+    /* LARGE EDITORIAL PHOTOS */
+
+    .photo-strip{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+      margin-bottom:42px;
+    }
+
+    .photo-strip img{
+      width:100%;
+      height:280px;
+      object-fit:cover;
+      border-radius:18px;
+      display:block;
+    }
+
+    /* BUTTONS */
+
+    .button-group{
+      display:flex;
+      flex-direction:column;
+      gap:14px;
+      align-items:center;
+    }
+
+    .button{
+      display:inline-block;
+      text-decoration:none;
+      border:1px solid #C8A46A;
+      color:#F1ECEB;
+      padding:18px 34px;
+      font-size:12px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      transition:all 0.3s ease;
+      width:100%;
+      max-width:280px;
+    }
+
+    .button:hover{
+      background:#C8A46A;
+      color:#602320;
+    }
+
+    .secondary-button{
+      background:rgba(200,164,106,0.10);
+    }
+
+    .footer{
+      margin-top:34px;
+      font-size:11px;
+      letter-spacing:3px;
+      text-transform:uppercase;
+      color:#C8A46A;
+    }
+
+    /* ANIMATIONS */
+
+    @keyframes softAppear{
+
+      from{
+        opacity:0;
+        transform:translateY(14px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    @keyframes introFadeOut{
+
+      0%{
+        opacity:1;
+        visibility:visible;
+      }
+
+      90%{
+        opacity:1;
+        visibility:visible;
+      }
+
+      100%{
+        opacity:0;
+        visibility:hidden;
+      }
+
+    }
+
+    @keyframes introTextFade{
+
+      0%{
+        opacity:1;
+      }
+
+      80%{
+        opacity:1;
+      }
+
+      100%{
+        opacity:0;
+        visibility:hidden;
+      }
+
+    }
+
+    @keyframes fadeUp{
+
+      from{
+        opacity:0;
+        transform:translateY(30px);
+      }
+
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+
+    }
+
+    /* MOBILE */
+
+    @media(max-width:480px){
+
+      .intro-title{
+        font-size:58px;
+      }
+
+      h1{
+        font-size:54px;
+      }
+
+      .hero{
+        height:640px;
+        padding:34px 24px;
+      }
+
+      .photo-strip img{
+        height:340px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- FULLSCREEN VIDEO INTRO -->
+
+  <div class="intro-video-wrapper">
+
+    <video
+      class="intro-video"
+      src="engagement-video.mp4"
+      autoplay
+      playsinline
+      webkit-playsinline
+      preload="auto"
+    ></video>
+
+    <div class="intro-overlay">
+
+      <div class="intro-eyebrow">
+        SAVE THE DATE
+      </div>
+
+      <div class="intro-title">
+        Brenna<br>
+        & Braedon
+      </div>
+
+      <div class="tap-sound">
+        Tap anywhere for sound
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- MAIN PAGE -->
+
+  <div class="container">
+
+    <div class="card">
+
+      <!-- HERO -->
+
+      <section class="hero">
+
+        <!-- BACKGROUND PHOTO -->
+
+        <img
+          class="hero-background-photo"
+          src="photo-2.jpg"
+          alt="Engagement Photo"
+        />
+
+        <!-- FLORAL OVERLAY -->
+
+        <img
+          class="overlay-floral"
+          src="https://png.pngtree.com/png-vector/20231019/ourmid/pngtree-dried-pampas-grass-floral-png-image_10237678.png"
+          alt="Floral Overlay"
+        />
+
+        <!-- HERO CONTENT -->
+
+        <div class="hero-content">
+
+          <div class="eyebrow">
+            SAVE THE DATE
+          </div>
+
+          <h1>
+            Brenna<br>
+            & Braedon
+          </h1>
+
+          <div class="details">
+            November 6, 2026<br>
+            Elora, Ontario
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- CONTENT -->
+
+      <section class="info-section">
+
+        <div class="message">
+          We’re getting married.
+        </div>
+
+        <div class="subtext">
+          Join us for a romantic weekend celebration at Elora Mill.<br><br>
+          Formal invitation to follow.
+        </div>
+
+        <!-- LARGE PHOTOS -->
+
+        <div class="photo-strip">
+
+          <img
+            src="photo-1.jpg"
+            alt="Engagement Photo"
+          />
+
+          <img
+            src="IMG_9630.jpg"
+            alt="Engagement Photo"
+          />
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="button-group">
+
+          <a
+            class="button"
+            href="https://theknot.com/braedonandbrenna"
+            target="_blank"
+          >
+            View Wedding Website
+          </a>
+
+          <a
+            class="button secondary-button"
+            href="wedding-save-the-date.ics"
+            download
+          >
+            Add To Calendar
+          </a>
+
+        </div>
+
+        <div class="footer">
+          Dinner • Dancing • Celebration
+        </div>
+
+      </section>
+
+    </div>
+
+  </div>
+
+  <!-- SOUND ENABLE -->
+
+  <script>
+
+    const introVideo = document.querySelector('.intro-video');
+
+    document.body.addEventListener('click', () => {
+
+      introVideo.muted = false;
+
+      introVideo.play();
+
+    }, { once:true });
+
+  </script>
+
+</body>
+</html>
