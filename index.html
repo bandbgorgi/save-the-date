@@ -629,19 +629,38 @@
 
   <!-- ENABLE SOUND -->
 
-  <script>
+<!-- ENABLE SOUND + AUTO END INTRO -->
 
-    const introVideo = document.querySelector('.intro-video');
+<script>
 
-    document.body.addEventListener('click', () => {
+  const introVideo = document.querySelector('.intro-video');
+  const introWrapper = document.querySelector('.intro-video-wrapper');
 
-      introVideo.muted = false;
+  // enable sound after first tap
 
-      introVideo.play();
+  document.body.addEventListener('click', () => {
 
-    }, { once:true });
+    introVideo.muted = false;
+    introVideo.play();
 
-  </script>
+  }, { once:true });
+
+  // fade intro away when video ends
+
+  introVideo.addEventListener('ended', () => {
+
+    introWrapper.style.transition = 'opacity 2s ease';
+    introWrapper.style.opacity = '0';
+
+    setTimeout(() => {
+
+      introWrapper.style.display = 'none';
+
+    }, 2000);
+
+  });
+
+</script>
 
 </body>
 </html>
