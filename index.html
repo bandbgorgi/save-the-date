@@ -366,35 +366,39 @@
 
   <!-- FULLSCREEN VIDEO INTRO -->
 
-  <div class="intro-video-wrapper">
+ <div class="intro-video-wrapper">
 
-    <video
-      class="intro-video"
-      src="engagement-video.mp4"
-      autoplay
-      playsinline
-      webkit-playsinline
-      preload="auto"
-    ></video>
+  <video
+    class="intro-video"
+    src="engagement-video.mp4"
+    autoplay
+    playsinline
+    webkit-playsinline
+    preload="auto"
+  ></video>
 
-    <div class="intro-overlay">
+  <div class="intro-overlay">
 
-      <div class="intro-eyebrow">
-        SAVE THE DATE
-      </div>
+    <div class="intro-eyebrow">
+      SAVE THE DATE
+    </div>
 
-      <div class="intro-title">
-        Brenna<br>
-        & Braedon
-      </div>
+    <div class="intro-title">
+      Brenna<br>
+      & Braedon
+    </div>
 
-      <div class="tap-sound">
-        Tap anywhere for sound
-      </div>
-
+    <div class="tap-sound">
+      Tap anywhere for sound
     </div>
 
   </div>
+
+  <div class="rotate-notice">
+    Rotate device for cinematic view
+  </div>
+
+</div>
 
   <!-- MAIN PAGE -->
 
@@ -504,7 +508,62 @@
     </div>
 
   </div>
+  
+/* ROTATE DEVICE NOTICE */
 
+.rotate-notice{
+  display:none;
+}
+
+@media(max-width:768px) and (orientation:portrait){
+
+  .rotate-notice{
+    position:absolute;
+    top:24px;
+    left:50%;
+    transform:translateX(-50%);
+    z-index:1000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:10px 16px;
+
+    background:rgba(0,0,0,0.42);
+    backdrop-filter:blur(10px);
+
+    border:1px solid rgba(255,255,255,0.14);
+
+    border-radius:999px;
+
+    color:rgba(255,255,255,0.92);
+
+    font-size:10px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+
+    animation:rotatePulse 2.4s ease-in-out infinite;
+  }
+
+  .intro-video{
+    object-fit:contain;
+    background:black;
+  }
+
+}
+
+@keyframes rotatePulse{
+
+  0%,100%{
+    opacity:0.65;
+  }
+
+  50%{
+    opacity:1;
+  }
+
+}
   <!-- SOUND ENABLE -->
 
   <script>
